@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Characters in Textarea Example - websolutionstuff.com</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="script.js">
+  
+</head>
+<body>
+    
+    <button id="rojo" class="rojo"></button>
+    
+    <button id="verde" class="verde"></button>
+    
+    <button id="azul" class="azul"></button>
+    
+    <p>
+        <textarea id="texto" height="500"></textarea>
+    </p>
+    <p>
+        <span id="wordCount">0</span> Characters
+    </p>
+
+    <script>
+        function changeColor(color) {document.body.style.background = color;}
+
+        var boton1 = document.getElementById('rojo');
+        var boton2 = document.getElementById('verde');
+        var boton3 = document.getElementById('azul');
+
+        boton1.addEventListener('click', function()
+        {changeColor('red')});
+
+        boton2.addEventListener('click', function()
+        {changeColor('green')});
+     
+        boton3.addEventListener('click', function()
+        {changeColor('blue')});
+
+        var texto = document.getElementById("texto");
+        var wordCount = document.getElementById("wordCount");
+
+        texto.addEventListener("keyup",function(){
+        var characters = texto.value.split('');
+        wordCount.innerText = characters.filter( item => {
+        return (item != ' ');
+        }).length;
+        });
+    </script>
+</body>
+</html>
